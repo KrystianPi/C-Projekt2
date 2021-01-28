@@ -98,6 +98,9 @@ public:
 					auto result = std::find_if(wektor_klientow.begin(), wektor_klientow.end(), [&imie](klient* k) { return k->get_imie() == imie; });
 					if (result != wektor_klientow.end()) {	//poczatek petli odpowiedzialnej za istniejacego juz klienta
 						std::cout << "Witamy ponownie " << imie << std::endl;
+						bool staly = s->sprawdz_klienta(imie);
+						(*result)->set_staly(staly);
+						if (staly == true) { (*result)->set_rabat(0.9); }
 						std::cout << " " << std::endl;
 						std::cin >> odp2;
 						if (odp2 == "w") {

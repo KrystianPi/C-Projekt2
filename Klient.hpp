@@ -16,7 +16,7 @@ public:
 			else { std::cout << " " << std::endl;	std::cout << "Nie ma takiej ilosci, zmniejsz ilosc" << std::endl; }
 		}
 	void dodaj_do_portfela(double Wplata) { portfel = Wplata + get_portfel(); }
-	void id() const {
+	void id() {
 		if (get_staly() == true) {
 			std::cout << " " << std::endl;
 			double rabat_w = 100 - rabat * 100;
@@ -38,10 +38,12 @@ public:
 	void set_Ilosc(int i) { ilosc = i; }
 	double get_portfel() const { return portfel; }
 	bool get_staly() const { return staly_klient; }
+	void set_staly(bool w) { staly_klient = w; }
 	std::string get_imie() const { return imie; }
 	int get_ilosc() const { return ilosc; }
 	std::vector<produkt>& get_koszyk(){ return koszyk_zagli; }
 	double get_rabat() const { return rabat; }
+	void set_rabat(double r) { rabat = r; }
 private:
 	std::vector<produkt> koszyk_zagli;
 	bool staly_klient;

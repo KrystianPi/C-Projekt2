@@ -45,7 +45,6 @@ public:
 			else { std::cout << i << "." << x << " wyprzedany" << std::endl; }
 		}
 	}
-	//bool comp(produkt &lhs, produkt &rhs) { return lhs.get_Rozmiar() < rhs.get_Rozmiar(); }
 	void wyswietl_z1(std::string n, int i) { //wyswietla wszystkie dostepne rozmiary wraz z cena, posortowane cena lub rozmiarem
 		auto result = std::find_if(v_zagli.begin(), v_zagli.end(), [&n](produkt p) { return p.get_Name() == n; });
 		std::cout << " " << std::endl;
@@ -60,7 +59,7 @@ public:
 	}
 	std::vector<produkt>& get_v_zagli() { return v_zagli ; }
 	std::vector<std::string> get_v_nazwa_z() { return wektor_nazw_zagli; }
-	std::vector<std::string> get_lista() { return lista_stalych; }
+	std::vector<std::string>& get_lista() { return lista_stalych; }
 private:
 	std::vector<produkt> v_zagli;
 	std::vector<std::string> lista_stalych;

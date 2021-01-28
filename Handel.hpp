@@ -15,14 +15,14 @@ public:
 				std::string new_Name = x.get_Name();
 				double new_Rozmiar = x.get_Rozmiar();
 				auto result = std::find_if(s.get_v_zagli().begin(), s.get_v_zagli().end(), [&new_Name, &new_Rozmiar](produkt p) { return p.get_Name() == new_Name && p.get_Rozmiar() == new_Rozmiar; });
+				if(result == s.get_v_zagli().end()){std::cout << "produkt juz wyprzedany, poczekaj na dostawe" << std:: endl; }
 				result->zmniejsz_Ilosc(x.get_Ilosc());
 				std::remove_if(s.get_v_zagli().begin(), s.get_v_zagli().end(), [](produkt p) {return p.get_Ilosc() == 0; }); // usuniecie produktu jesli jego ilosc spadnie do zera
 			}
-			if (ilosc_prod > 5) { // jesli ilosc produktow jest wieksza, uruchamia sie sprzedaz hurtowa i aplikowany jest rabat w wysokosci 30%
+			if (ilosc_prod > 5) {
 				std::cout << "Sprzedaz hurtowa, rabat w wysokosci 30%" << std::endl;
 				k.set_rabat(0.7);
 			} 
-
 			k.dodaj_do_portfela( - zsumuj_koszyk(k)*(k.get_rabat())); // modyfikacja portfela klienta z uwzglednieniem rabatu
 			k.get_koszyk().clear();
 			k.set_Ilosc(0);

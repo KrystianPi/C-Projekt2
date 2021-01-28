@@ -18,7 +18,7 @@ public:
 				result->zmniejsz_Ilosc(x.get_Ilosc());
 				std::remove_if(s.get_v_zagli().begin(), s.get_v_zagli().end(), [](produkt p) {return p.get_Ilosc() == 0; }); // usuniecie produktu jesli jego ilosc spadnie do zera
 			}
-			if (ilosc_prod > 5) {
+			if (ilosc_prod > 5) { // jesli ilosc produktow jest wieksza, uruchamia sie sprzedaz hurtowa i aplikowany jest rabat w wysokosci 30%
 				std::cout << "Sprzedaz hurtowa, rabat w wysokosci 30%" << std::endl;
 				k.set_rabat(0.7);
 			} 
